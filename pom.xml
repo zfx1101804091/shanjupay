@@ -59,19 +59,13 @@
                 <version>2.9.2</version>
             </dependency>
 
-            <!--
+            
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-jwt</artifactId>
                 <version>1.0.9.RELEASE</version>
-            </dependency>-->
-            <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt -->
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-jwt</artifactId>
-                <version>1.0.10.RELEASE</version>
             </dependency>
-
+          
 
             <dependency>
                 <groupId>org.springframework.security.oauth.boot</groupId>
@@ -198,7 +192,7 @@
 
         </dependencies>
     </dependencyManagement>
-
+    
     <build>
         <finalName>${project.name}</finalName>
         <resources>
