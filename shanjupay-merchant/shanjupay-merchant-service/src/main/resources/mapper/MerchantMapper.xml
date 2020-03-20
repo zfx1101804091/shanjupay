@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shanjupay.merchant.mapper.MerchantMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shanjupay.merchant.entity.Merchant">
+        <id column="ID" property="id"/>
+        <result column="MERCHANT_NAME" property="merchantName"/>
+        <result column="MERCHANT_NO" property="merchantNo"/>
+        <result column="MERCHANT_ADDRESS" property="merchantAddress"/>
+        <result column="MERCHANT_TYPE" property="merchantType"/>
+        <result column="BUSINESS_LICENSES_IMG" property="businessLicensesImg"/>
+        <result column="ID_CARD_FRONT_IMG" property="idCardFrontImg"/>
+        <result column="ID_CARD_AFTER_IMG" property="idCardAfterImg"/>
+        <result column="USERNAME" property="username"/>
+        <result column="MOBILE" property="mobile"/>
+        <result column="CONTACTS_ADDRESS" property="contactsAddress"/>
+        <result column="AUDIT_STATUS" property="auditStatus"/>
+        <result column="TENANT_ID" property="tenantId"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, MERCHANT_NAME, MERCHANT_NO, MERCHANT_ADDRESS, MERCHANT_TYPE, BUSINESS_LICENSES_IMG, ID_CARD_FRONT_IMG, ID_CARD_AFTER_IMG, USERNAME, MOBILE, CONTACTS_ADDRESS, AUDIT_STATUS, TENANT_ID
+    </sql>
+
+</mapper>

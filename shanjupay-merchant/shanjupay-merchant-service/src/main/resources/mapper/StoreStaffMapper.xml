@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shanjupay.merchant.mapper.StoreStaffMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shanjupay.merchant.entity.StoreStaff">
+        <id column="ID" property="id"/>
+        <result column="STORE_ID" property="storeId"/>
+        <result column="STAFF_ID" property="staffId"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, STORE_ID, STAFF_ID
+    </sql>
+
+</mapper>
