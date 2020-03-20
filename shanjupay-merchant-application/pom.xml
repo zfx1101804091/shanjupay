@@ -12,11 +12,11 @@
     <artifactId>shanjupay-merchant-application</artifactId>
     
     <dependencies>
-        <!--<dependency>
+        <dependency>
             <groupId>com.shanjupay</groupId>
             <artifactId>shanjupay-merchant-api</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>-->
+        </dependency>
         <!-- Nacos配置中心 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
