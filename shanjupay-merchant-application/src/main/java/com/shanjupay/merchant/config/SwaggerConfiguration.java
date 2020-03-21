@@ -32,9 +32,9 @@ public class SwaggerConfiguration {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("闪聚支付‐商户应用API文档")
-                .description("swagger-bootstrap-ui")
-                .termsOfServiceUrl("http://localhost:8999/")
-                .contact("developer@mail.com")
+                .description("闪聚支付-API")
+                .termsOfServiceUrl("http://localhost:57010/merchant")
+                .contact("zhengfxr@mail.com")//作者
                 .version("1.0")
                 .build();
     }

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @version 1.0
  **/
 @Configuration
-@MapperScan("com.shanjupay.**.mapper")
+@MapperScan("com.shanjupay.merchant.mapper")
 public class MybatisPlusConfig {
 
     /**

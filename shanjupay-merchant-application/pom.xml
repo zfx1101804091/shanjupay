@@ -93,6 +93,16 @@
             <artifactId>swagger-bootstrap-ui</artifactId>
             <version>1.9.6</version>
         </dependency>
+        <!--
+            RestTemplate默认依赖JDK提供http连接的能力 （HttpURLConnection），
+            也可以通过替换为例如 Apache HttpComponents、Netty或OkHttp等其它HTTP 客户 端，OkHttp的性能优越，
+            本项目使用OkHttp；官网：https://square.github.io/okhttp/，github： https://github.com/square/okhttp
+        -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
