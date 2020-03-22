@@ -22,6 +22,7 @@ public class MerchantServiceImpl implements MerchantService {
     @Autowired
     private MerchantMapper merchantMapper;
     
+    //通过Id查询商户信息
     @Override
     public MerchantDTO queryMerchantById(Long id) {
         Merchant merchant = merchantMapper.selectById(id);
@@ -29,4 +30,6 @@ public class MerchantServiceImpl implements MerchantService {
         BeanUtils.copyProperties(merchant,merchantDTO);
         return merchantDTO;
     }
+    
+    
 }
