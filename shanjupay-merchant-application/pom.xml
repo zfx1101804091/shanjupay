@@ -16,6 +16,13 @@
             <groupId>com.shanjupay</groupId>
             <artifactId>shanjupay-merchant-api</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <!--排除mybatis防止启动报错-->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- Nacos配置中心 -->
         <dependency>
@@ -102,7 +109,7 @@
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
         </dependency>
-
+        
     </dependencies>
 
 </project>

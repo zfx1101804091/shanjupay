@@ -27,6 +27,9 @@ spring:
           refresh: true
           data-id: spring-boot-http.yaml # spring boot http配置
           group: COMMON_GROUP # 通用配置组
+        - refresh: true
+          data-id: spring-boot-redis.yaml # spring boot mybatisplus配置
+          group: COMMON_GROUP # 通用配置组
   #SpringMVC上传文件配置
   servlet:
     multipart:

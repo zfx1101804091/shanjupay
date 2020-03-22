@@ -1,59 +1,74 @@
 package com.shanjupay.merchant.api.dto;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
 /**
- * @description:
- * @author: zheng-fx
- * @time: 2020/3/20 0020 21:54
+ * <p>
+ *
+ * </p>
+ *
+ * @author zheng_fx
+ * @since 2020-03-22
  */
-@ApiModel(value = "MerchantDTO", description = "商户信息")
 @Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@ApiModel(value = "MerchantDTO", description = "商户信息")
 public class MerchantDTO implements Serializable {
 
-    @ApiModelProperty("商户id")
+    private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "商户ID")
     private Long id;
 
-    @ApiModelProperty("企业名称")
+    @ApiModelProperty(value = "商户名称")
     private String merchantName;
 
-    @ApiModelProperty("企业编号")
+    @ApiModelProperty(value = "企业编号")
     private String merchantNo;
 
-    @ApiModelProperty("企业地址")
+    @ApiModelProperty(value = "企业地址")
     private String merchantAddress;
 
-    @ApiModelProperty("行业类型")
+    @ApiModelProperty(value = "商户类型")
     private String merchantType;
 
-    @ApiModelProperty("营业执照")
+    @ApiModelProperty(value = "营业执照（企业证明）")
     private String businessLicensesImg;
 
-    @ApiModelProperty("法人身份证正面")
+    @ApiModelProperty(value = "法人身份证正面照片")
     private String idCardFrontImg;
 
-    @ApiModelProperty("法人身份证反面")
+    @ApiModelProperty(value = "法人身份证反面照片")
     private String idCardAfterImg;
 
-    @ApiModelProperty("联系人")
+    @ApiModelProperty(value = "联系人姓名")
     private String username;
 
-    @ApiModelProperty("密码")
+    @ApiModelProperty("密码") 
     private String password;
 
-    @ApiModelProperty("手机号,关联统一账号")
+    @ApiModelProperty(value = "联系人手机号(关联统一账号)")
     private String mobile;
 
-    @ApiModelProperty("联系人地址")
+    @ApiModelProperty(value = "联系人地址")
     private String contactsAddress;
 
-    @ApiModelProperty("审核状态,0-未申请,1-已申请待审核,2-审核通过,3-审核拒绝")
+    @ApiModelProperty(value = "审核状态 0-未申请,1-已申请待审核,2-审核通过,3-审核拒绝")
     private String auditStatus;
 
-    @ApiModelProperty("租户ID")
+    @ApiModelProperty(value = "租户ID,关联统一用户")
     private Long tenantId;
+
+
 }
