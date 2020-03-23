@@ -6,16 +6,24 @@ import com.shanjupay.common.util.CommonResult;
 import com.shanjupay.merchant.api.MerchantService;
 import com.shanjupay.merchant.api.dto.MerchantDTO;
 import com.shanjupay.merchant.convert.MerchantCovert;
+import com.shanjupay.merchant.service.FileService;
 import com.shanjupay.merchant.service.SmsService;
 import com.shanjupay.merchant.vo.MerchantRegisterVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import net.bytebuddy.asm.Advice;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.sql.BatchUpdateException;
+import java.util.UUID;
 
 /**
  * @description:
@@ -34,6 +42,9 @@ public class MerchantController {
 
     @Autowired
     StringRedisTemplate redisTemplate;
+    
+    @Autowired
+    FileService fileService;
 
     @ApiOperation("根据id查询商户")
     @GetMapping("/merchants/{id}")
@@ -66,8 +77,8 @@ public class MerchantController {
 
         //先去数据库查该手机号是否已经注册过了
         MerchantDTO merchant = merchantService.queryMerchantByPhone(merchantRegister.getMobile());
-        
-        if(null==merchant){
+
+        if (null == merchant) {
             //手机号未注册
             //说明验证码获取成功
             //短信接口注册成功，会将验证码存入redis key：sms:phone:code,所以这里我们直接从redis中获取code取校验
@@ -92,5 +103,32 @@ public class MerchantController {
             return new CommonResult().error(405, "验证码校验失败，请输入正确的验证码");
         }
         return new CommonResult().error(405, "手机号已被注册,请更换手机号");
+    }
+
+    /**
+     * TODO 使用阿里云的oss做文件存储服务
+     *
+     * @param file
+     * @return
+     */
+    @ApiOperation("证件上传")
+    @PostMapping("/upload")
+    public String upload(@ApiParam(value = "上传的证件", required = true) @RequestParam("file") MultipartFile file) throws IOException, BatchUpdateException {
+        //原始文件名称 
+        String originalFilename = file.getOriginalFilename();
+        //文件后缀 
+        String suffix = originalFilename.substring(originalFilename.lastIndexOf(".") - 1);
+        //文件名称 
+        String fileName = UUID.randomUUID().toString() + suffix;
+        //上传文件，返回文件下载url
+        String fileurl = fileService.upload(file.getBytes(), fileName);
+        return fileurl;
+    }
+
+
+    @ApiOperation("文件下载")
+    @GetMapping("/download")
+    public void download(@ApiParam(value = "文件下载", required = true)@RequestParam("fileName")  String fileName) throws IOException{
+      fileService.download(fileName);
     }
 }
