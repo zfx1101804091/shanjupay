@@ -3,6 +3,7 @@ package com.shanjupay.common.domain;
 
 
 /**
+ * TODO 自定义错误码
  * 异常编码 0成功、-1熔断、 -2 标准参数校验不通过 -3会话超时
  * 前两位:服务标识
  * 中间两位:模块标识

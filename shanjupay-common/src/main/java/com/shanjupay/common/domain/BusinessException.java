@@ -1,67 +1,71 @@
-
-
 package com.shanjupay.common.domain;
 
-
-
+/*
+ * 功能描述: 
+ * 	TODO  自定义业务异常类
+ * @Param: 
+ * @Return: 
+ * @Author: Administrator
+ * @Date: 2020/3/23 0023 20:09
+ */
 public class BusinessException extends RuntimeException {
 
-	
-	private static final long serialVersionUID = 5565760508056698922L;
-	
-	private ErrorCode errorCode;
 
-	public BusinessException(ErrorCode errorCode) {
-		super();
-		this.errorCode = errorCode;
-	}
-	
-	public BusinessException() {
-		super();
-	}
+    private static final long serialVersionUID = 5565760508056698922L;
 
-	public BusinessException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
-		super(arg0, arg1, arg2, arg3);
-	}
-	
-	public BusinessException(ErrorCode errorCode, String arg0, Throwable arg1, boolean arg2, boolean arg3) {
-		super(arg0, arg1, arg2, arg3);
-		this.errorCode = errorCode;
-	}
+    private ErrorCode errorCode;
 
-	public BusinessException(String arg0, Throwable arg1) {
-		super(arg0, arg1);
-	}
-	
-	public BusinessException(ErrorCode errorCode, String arg0, Throwable arg1) {
-		super(arg0, arg1);
-		this.errorCode = errorCode;
-	}
+    public BusinessException(ErrorCode errorCode) {
+        super();
+        this.errorCode = errorCode;
+    }
 
-	public BusinessException(String arg0) {
-		super(arg0);
-	}
-	
-	public BusinessException(ErrorCode errorCode, String arg0) {
-		super(arg0);
-		this.errorCode = errorCode;
-	}
+    public BusinessException() {
+        super();
+    }
 
-	public BusinessException(Throwable arg0) {
-		super(arg0);
-	}
-	
-	public BusinessException(ErrorCode errorCode, Throwable arg0) {
-		super(arg0);
-		this.errorCode = errorCode;
-	}
+    public BusinessException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
+        super(arg0, arg1, arg2, arg3);
+    }
 
-	public ErrorCode getErrorCode() {
-		return errorCode;
-	}
+    public BusinessException(ErrorCode errorCode, String arg0, Throwable arg1, boolean arg2, boolean arg3) {
+        super(arg0, arg1, arg2, arg3);
+        this.errorCode = errorCode;
+    }
 
-	public void setErrorCode(ErrorCode errorCode) {
-		this.errorCode = errorCode;
-	}
-	
+    public BusinessException(String arg0, Throwable arg1) {
+        super(arg0, arg1);
+    }
+
+    public BusinessException(ErrorCode errorCode, String arg0, Throwable arg1) {
+        super(arg0, arg1);
+        this.errorCode = errorCode;
+    }
+
+    public BusinessException(String arg0) {
+        super(arg0);
+    }
+
+    public BusinessException(ErrorCode errorCode, String arg0) {
+        super(arg0);
+        this.errorCode = errorCode;
+    }
+
+    public BusinessException(Throwable arg0) {
+        super(arg0);
+    }
+
+    public BusinessException(ErrorCode errorCode, Throwable arg0) {
+        super(arg0);
+        this.errorCode = errorCode;
+    }
+
+    public ErrorCode getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(ErrorCode errorCode) {
+        this.errorCode = errorCode;
+    }
+
 }
