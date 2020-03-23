@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.shanjupay.common.util.CommonResult;
 import com.shanjupay.merchant.api.MerchantService;
 import com.shanjupay.merchant.api.dto.MerchantDTO;
+import com.shanjupay.merchant.convert.MerchantCovert;
 import com.shanjupay.merchant.service.SmsService;
 import com.shanjupay.merchant.vo.MerchantRegisterVO;
 import io.swagger.annotations.Api;
@@ -77,10 +78,13 @@ public class MerchantController {
 
             if (code.equals(merchantRegister.getVerifiyCode())) {
                 //说明输入的验证码和手机验证码一致，开始注册业务
-                MerchantDTO merchantDTO = new MerchantDTO();
-                merchantDTO.setUsername(merchantRegister.getUsername());
+//                MerchantDTO merchantDTO = new MerchantDTO();
+                //使用MapStruct进行类型转换，这里也可以用spring的BeanUtils.copyProperties()方法，此处为扩展
+                // MapStruct 使用简单的方法即可完成对象之间的转换，它速度快、类型安全且易于理解。
+                /*merchantDTO.setUsername(merchantRegister.getUsername());
                 merchantDTO.setMobile(merchantRegister.getMobile());
-                merchantDTO.setPassword(merchantRegister.getPassword());
+                merchantDTO.setPassword(merchantRegister.getPassword());*/
+                MerchantDTO merchantDTO = MerchantCovert.INSTANCE.vo2dto(merchantRegister);
                 merchantService.createMerchant(merchantDTO);
                 return new CommonResult().ok(200, "注册成功", merchantRegister);
             }
