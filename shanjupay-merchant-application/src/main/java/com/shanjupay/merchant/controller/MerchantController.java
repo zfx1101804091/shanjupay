@@ -128,7 +128,10 @@ public class MerchantController {
 
     @ApiOperation("文件下载")
     @GetMapping("/download")
-    public void download(@ApiParam(value = "文件下载", required = true)@RequestParam("fileName")  String fileName) throws IOException{
+    public void download(
+            @ApiParam(value = "oss文件url地址",required = true)
+            @RequestParam("fileName")  String fileName) throws IOException{
+        
       fileService.download(fileName);
     }
 }

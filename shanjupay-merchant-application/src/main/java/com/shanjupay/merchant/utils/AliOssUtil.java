@@ -74,38 +74,34 @@ public class AliOssUtil {
     }
 
 
-    public static void downloadlocal(String urllink){
-
+    public static void downloadlocal(String fileUrl,String fileName) throws IOException {
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
         try {
-            URL url = new URL(urllink);
+            URL url = new URL(fileUrl);
             //打开到此 URL 的连接并返回一个用于从该连接读入的 InputStream。
-            InputStream in = url.openStream();
-            download3(in);
-
-        } catch (IOException e){
-
-        }
-    }
-
-    public static void download3(InputStream inputStream){
-
-        try {
-            File file = new File("D:\\home\123.jpg");
-            OutputStream outputStream = new FileOutputStream(file);
+            inputStream = url.openStream();
+            File file = new File("home\\file\\"+fileName);
+            if(!file.exists()){
+                file.createNewFile();
+            }
+            outputStream = new FileOutputStream(file);
 
             int byteCount = 0;
             //1M逐个读取
-            byte[] bytes = new byte[1024*1024];
-            while ((byteCount = inputStream.read(bytes)) != -1){
+            byte[] bytes = new byte[1024 * 1024];
+            while ((byteCount = inputStream.read(bytes)) != -1) {
                 outputStream.write(bytes, 0, byteCount);
             }
 
+
+        } catch (IOException e) {
+            e.getStackTrace();
+        } finally {
+
             inputStream.close();
             outputStream.close();
-        } catch (FileNotFoundException e){
-            e.printStackTrace();
-        } catch (IOException e){
-            e.printStackTrace();
         }
     }
+    
 }

@@ -73,4 +73,14 @@ public class MerchantApplicationBootstrapTest {
         String body = responseEntity.getBody();
         System.out.println(body);
     }
+
+    @Test
+    public void test(){
+        String filename="https://webparkdb-003.oss-cn-beijing.aliyuncs.com/gmall/images/shanjupay/0878c3c9-b9df-4b8f-9969-f07cff2382552.jpg";
+        String spli = "https://webparkdb-003.oss-cn-beijing.aliyuncs.com/gmall/images/shanjupay/";
+        String str = "/gmall/images/shanjupay/0878c3c9-b9df-4b8f-9969-f07cff2382552.jpg";
+        String substring = filename.substring(filename.lastIndexOf("/") + 1);
+        System.out.println(substring);
+        
+    }
 }

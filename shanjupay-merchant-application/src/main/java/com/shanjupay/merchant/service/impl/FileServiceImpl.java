@@ -47,9 +47,10 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public String download(String fileName) throws IOException {
+    public String download(String fileUrl) throws IOException {
+        String fileName =fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
 //            AliOssUtil.download(endpoint,accessKeyId,accessKeySecret,bucketName,fileName);
-        AliOssUtil.downloadlocal(fileName);
+        AliOssUtil.downloadlocal(fileUrl,fileName);
         return "success";
     }
 }
